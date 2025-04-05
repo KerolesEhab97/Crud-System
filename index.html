@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <h1 class="text-center py-5">Store Management System</h1>
+      <div class="form w-75 m-auto">
+        <div id="alertMessage" class="alert alert-danger d-none">
+          All inputs must be valid
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control border-top-0 rounded-0 border-black border-start-0 border-end-0"
+            id="productName"
+            placeholder="productName"
+            oninput="inputsValidations(this ,'nameErrorMsg')"
+          />
+          <label for="productName">Product Name:</label>
+          <p id="nameErrorMsg" class="text-danger ps-2 fw-medium d-none">
+            Product Name must started by a capital character followed by 5:15
+            letter , character , _ or space
+          </p>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control border-top-0 rounded-0 border-black border-start-0 border-end-0"
+            id="productPrice"
+            placeholder="productPrice"
+            oninput="inputsValidations(this ,'priceErrorMsg')"
+          />
+          <label for="productPrice">Product Price:</label>
+          <p id="priceErrorMsg" class="text-danger ps-2 fw-medium d-none">
+            Product price between 10000 and 100000
+          </p>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            list="category"
+            class="form-control border-top-0 rounded-0 border-black border-start-0 border-end-0"
+            id="productCategory"
+            placeholder="productCategory"
+            oninput="inputsValidations(this ,'categoryErrorMsg')"
+          />
+          <label for="productCategory">Product Category:</label>
+          <p id="categoryErrorMsg" class="text-danger ps-2 fw-medium d-none">
+            Product category must be Mobile , Tv , Laptop or Camera
+          </p>
+          <datalist id="category">
+            <!--~ list اسمها attrbuite عن طريق input بال datalist بربط ال -->
+            <option value="Mobile"></option>
+            <option value="Tv"></option>
+            <option value="Laptop"></option>
+            <option value="Camera"></option>
+          </datalist>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+            class="form-control border-top-0 rounded-0 border-black border-start-0 border-end-0"
+            id="productDescription"
+            placeholder="productDescription"
+            oninput="inputsValidations(this ,'descriptionErrorMsg')"
+          ></textarea>
+          <label for="productDescription">Product Description:</label>
+          <p id="descriptionErrorMsg" class="text-danger ps-2 fw-medium d-none">
+            Product description must be valid (5 chars or more)
+          </p>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="file"
+            class="form-control py-5 border-top-0 rounded-0 border-black border-start-0 border-end-0"
+            id="productImg"
+            placeholder="productImg"
+            onchange="inputsValidations(this ,'imageErrorMsg')"
+          />
+          <label for="productImg">Product Image:</label>
+          <p id="imageErrorMsg" class="text-danger ps-2 fw-medium d-none">
+            Product image extesion must be jpg,svg,png,jpeg or webp
+          </p>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <div>
+            <button
+              id="addBtn"
+              onclick="addProduct()"
+              class="btn btn-primary my-3"
+            >
+              Add Product
+            </button>
+            <button
+              id="updateBtn"
+              onclick="updateProduct()"
+              class="btn btn-warning my-3 d-none"
+            >
+              Update Product
+            </button>
+          </div>
+          <input
+            type="text"
+            id="searchInput"
+            oninput="searchProduct()"
+            placeholder="Search by product Name"
+            class="form-control border-3 border-primary searchByName"
+          />
+        </div>
+      </div>
+      <div
+        id="rowData"
+        class="row border-top border-2 border-black py-5 mt-4 row-gap-2"
+      >
+        <!-- <div class="col-md-3">
+          <div class="card p-3">
+            <img src="./Images/iphone16.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h4>iPhone 16</h4>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet consectetur adipisicing.
+              </p>
+              <h6>category: Mpbile</h6>
+              <h6>Price: 50000</h6>
+              <div>
+                <button class="btn btn-danger w-100 my-2">
+                  Delete
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="btn btn-warning w-100">
+                  Update
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.form-control:focus {
+  box-shadow: unset;
+  border-color: unset;
+}
+
+textarea {
+  resize: none;
+}
+img {
+  height: 300px;
+  object-fit: contain;
+}
+input.searchByName{
+  width: 30%;
+}
+.is-valid:focus,
+.is-invalid:focus {
+  border-radius: 5px !important;
+}
